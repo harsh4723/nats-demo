@@ -1,7 +1,7 @@
 import asyncio
 from nats.aio.client import Client as NATS
 
-async def publish():
+async def publish(loop):
     nc = NATS()
 
     await nc.connect("nats-bridge-internal.prod.use-1d.infra:4222")
