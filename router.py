@@ -10,21 +10,6 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
-# async def message_handler(msg):
-#     logger.info(f"In nats handler")
-#     subject = msg.subject
-#     data = msg.data.decode()
-#     logger.info(f"Received a message on '{subject}': {data}")
-
-# async def main(loop):
-#     logger.info(f"in NATS main")
-#     nc = NATS()
-
-#     await nc.connect("nats://nats:4222", loop=loop)  # Connect to NATS server
-#     sid = await nc.subscribe("test", cb=message_handler)  # Subscribe to subject
-#     logger.info(f"NATS connected")
-
-
 @router.get("/hello/{message}")
 async def sample_test(message: str):
     logger.info(f"Hellooooooooooooo")
