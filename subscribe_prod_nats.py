@@ -4,18 +4,22 @@ import logging
 
 async def subscribe(loop):
     logging.info(f"in NATS main")
+    print("Harsh NATS main")
     nc = NATS()
 
     options = {"servers": "nats-bridge-internal.prod.use-1d.infra:4222", "loop": loop, "dont_randomize": True}
 
     async def disconnected_cb():
         logging.warning("Got disconnected from nats!")
+        print("Harsh disconnected")
 
     async def reconnected_cb():
         # See who we are connected to on reconnect.
+        print("Harsh reconnected")
         logging.info("Got reconnected to {url}".format(url=nc.connected_url.netloc))
 
     async def error_cb(e):
+        print("Harsh error")
         logging.warning("There was an error: {}".format(e))
 
     async def closed_cb():
@@ -36,6 +40,7 @@ async def subscribe(loop):
 
 
     logging.info("Harsh natssssssss")
+    print("Harsh natsssss")
     try:
         await nc.connect(**options)
     except Exception as e:
