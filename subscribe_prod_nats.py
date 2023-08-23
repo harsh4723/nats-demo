@@ -24,11 +24,14 @@ async def subscribe(loop):
 
     async def closed_cb():
         logging.info("NATS connection is closed")
+        print("Nats closed")
 
     async def message_handler(msg):
+        print("Handler invoked")
         logging.info(f"In nats handler")
         subject = msg.subject
         data = msg.data.decode()
+        print(f"received message:{data}")
         logging.info(f"Received a message on '{subject}': {data}")
 
     options["disconnected_cb"] = disconnected_cb
