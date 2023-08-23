@@ -41,7 +41,8 @@ async def subscribe(loop):
     options["error_cb"] = error_cb
     options["closed_cb"] = closed_cb
     options["reconnect_time_wait"] = 1
-    options["max_outstanding_pings"] = 5
+    options["max_outstanding_pings"] = 20
+    options["ping_interval"] = 30
 
 
     logging.info("Harsh natssssssss")
