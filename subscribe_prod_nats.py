@@ -40,6 +40,7 @@ async def subscribe(loop):
     options["connect_timeout"] = 5  # 5 sec
     options["error_cb"] = error_cb
     options["closed_cb"] = closed_cb
+    options["reconnect_time_wait"] = 0.1
 
 
     logging.info("Harsh natssssssss")
